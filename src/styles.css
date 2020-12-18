@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100%;
+}
+.load {
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  z-index: 2;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.pseudoButton:hover {
+  cursor: pointer;
+  color: black;
+}
