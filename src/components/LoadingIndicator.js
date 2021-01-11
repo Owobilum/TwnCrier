@@ -1,7 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-import CircularProgress from "@material-ui/core/CircularProgress";
-
+import { makeStyles, CircularProgress } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -10,10 +8,8 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-
 export default function LoadingIndicator() {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <CircularProgress color="secondary" />

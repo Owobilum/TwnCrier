@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./styles.css";
-import NewsCards from "./components/NewsCards";
+import Home from "./components/Home";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import blue from "@material-ui/core/colors/blue";
-import { NewsContext } from "./utils/newsData";
-import LoadingIndicator from "./components/LoadingIndicator";
+import SignUp from "./components/SignUp";
+import LogIn from "./components/LogIn";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./components/ForgotPassword";
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -13,12 +16,23 @@ const theme = createMuiTheme({
   }
 });
 function App() {
-  const { isLoading } = useContext(NewsContext);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <div className="load">{isLoading ? <LoadingIndicator /> : null}</div>
-        <NewsCards />
+        <Router>
+          <Switch>
+            <PrivateRoute component={Home} exact path="/"></PrivateRoute>
+            <Route path="/signup">
+              <SignUp />
+            </Route>
+            <Route path="/login">
+              <LogIn />
+            </Route>
+            <Route path="/forgot-password">
+              <ForgotPassword />
+            </Route>
+          </Switch>
+        </Router>
       </ThemeProvider>
     </div>
   );

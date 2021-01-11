@@ -1,5 +1,20 @@
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
+  head: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginTop: 8,
+    marginRight: 8
+  },
+  logoutBtn: {
+    fontSize: 8
+  },
+  userEmail: {
+    fontSize: 10,
+    paddingRight: 2,
+    paddingTop: 2
+  },
   paper: {
     maxWidth: "100%",
     margin: 30,

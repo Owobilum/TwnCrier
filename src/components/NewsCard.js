@@ -12,7 +12,6 @@ function NewsCard(props) {
   const classes = useStyles();
   const date = new Date(props.date);
   return (
-    //findDomNode strictmode error caused by Grow will be sorted in material ui v5
     <Grow in={true} timeout={1500}>
       <Card
         className={`${classes.root} ${

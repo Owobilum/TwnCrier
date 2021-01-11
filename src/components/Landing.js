@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Paper,
   Grid,
@@ -9,22 +9,47 @@ import {
   InputLabel,
   InputAdornment,
   FormControl,
-  IconButton
+  IconButton,
+  Button
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { Alert } from "@material-ui/lab/";
 import useClickFetcher from "../hooks/useClickFetcher";
 import { NewsContext } from "../utils/newsData";
 import LandingGridList from "./LandingGridList";
-
+import { useHistory } from "react-router-dom";
 import useStyles from "./styleLanding";
-
 function Landing(props) {
-  const { searchTerm } = useContext(NewsContext);
+  const { searchTerm, currentUser, logout } = useContext(NewsContext);
   const { handleChange, getNewsByTerm } = useClickFetcher();
+  const [error, setError] = useState("");
+  const history = useHistory();
   const classes = useStyles();
-
+  async function handleLogOut() {
+    setError("");
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
+  }
   return (
     <>
+      {error && <Alert severity="error">{error}</Alert>}
+      <div className={classes.head}>
+        <Typography variant="caption" className={classes.userEmail}>
+          {currentUser.email}
+        </Typography>{" "}
+        |
+        <Button
+          size="small"
+          className={classes.logoutBtn}
+          onClick={handleLogOut}
+        >
+          Log out
+        </Button>
+      </div>
       <Paper className={classes.paper} elevation={3}>
         <Grid
           container
@@ -42,9 +67,7 @@ function Landing(props) {
             />
           </Grid>
         </Grid>
-
         <LandingGridList />
-
         <Grid container>
           <Grid
             item
@@ -59,12 +82,10 @@ function Landing(props) {
               <Typography variant="h6" component="h2" gutterBottom>
                 <b>Search for News</b>
               </Typography>
-
               <Typography variant="body2" component="p">
                 Say: gist me about <i>BITCOIN</i>
                 <br />
               </Typography>
-
               <FormControl className={classes.textField}>
                 <InputLabel htmlFor="standard-adornment-text">
                   search here
