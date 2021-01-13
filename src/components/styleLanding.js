@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     flexDirection: "row",
     justifyContent: "flex-end",
     marginTop: 8,
-    marginRight: 8
+    marginRight: 16
   },
   logoutBtn: {
     fontSize: 8

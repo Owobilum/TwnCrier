@@ -62,8 +62,8 @@ function Landing(props) {
             <CardMedia
               component="img"
               alt="logo"
-              image="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/UO7d-logo3.jpg"
-              title="App_Logo"
+              image="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/k8vF-twncrier_logo.png"
+              title="twncrier_logo"
             />
           </Grid>
         </Grid>

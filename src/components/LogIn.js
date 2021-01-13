@@ -5,10 +5,12 @@ import {
   Button,
   Card,
   Container,
-  Typography
+  Typography,
+  Grid,
+  CardMedia
 } from "@material-ui/core/";
 import useStyles from "./styleAuthComponents";
-import Alert from "@material-ui/lab/Alert";
+import { Alert } from "@material-ui/lab/";
 import { NewsContext } from "../utils/newsData";
 function LogIn() {
   const classes = useStyles();
@@ -41,6 +43,22 @@ function LogIn() {
   return (
     <>
       <Container className={classes.container}>
+        <Grid
+          container
+          direction="row"
+          alignItems="stretch"
+          spacing={3}
+          className={classes.grid}
+        >
+          <Grid item xs={12} sm={4} md={3} lg={3} xl={2}>
+            <CardMedia
+              component="img"
+              alt="logo"
+              image="https://uploads.codesandbox.io/uploads/user/1a5985a1-0a7f-42b3-81c2-3703197c8d42/rCfs-twncrier_logo_light.png"
+              title="twncrier_logo"
+            />
+          </Grid>
+        </Grid>
         <form
           className={classes.form}
           onSubmit={handleSubmit}
