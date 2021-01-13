@@ -23,7 +23,8 @@ const useStyles = makeStyles({
     marginTop: 20
   },
   btn: {
-    marginTop: 20
+    marginTop: 20,
+    color: "#fff"
   },
   login: {
     marginTop: 10
