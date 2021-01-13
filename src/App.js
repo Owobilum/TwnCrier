@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.css";
 import Home from "./components/Home";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
-import blue from "@material-ui/core/colors/blue";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -11,7 +10,7 @@ import ForgotPassword from "./components/ForgotPassword";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: blue[500]
+      main: "#1fbbff"
     }
   }
 });
